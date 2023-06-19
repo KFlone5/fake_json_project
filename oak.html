@@ -26,12 +26,23 @@
 <script>
     feedbackForm.addEventListener('submit', (e) => {
         let name = e.srcElement[0].value;
-        console.log(name);
         let email = e.srcElement[1].value;
-        console.log(email);
         let feedback = e.srcElement[2].value;
-        console.log(feedback);
-        console.alarm(1);
+
+        fetch("https://my-json-server.typicode.com/KFlone5/fake_json_project", {
+        method: "POST",
+        body: JSON.stringify({
+            name: name,
+            email: email,
+            feedback: feedback,
+            title: "Fix my bugs",
+            completed: false
+        }),
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+        });
+
     })
 </script>
 </html>
